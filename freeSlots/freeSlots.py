@@ -16,15 +16,16 @@ def get_free_slots(file_name):
     # Sorting the events by their start times
     event_times.sort(key=lambda x: x[0])
 
-    for time in event_times:
-        print(time)
+    # for time in event_times:
+    #     print(time)
 
     # Define a starting time for a day (e.g., 00:00) and an ending time for a day (e.g., 23:59)
     day_start = event_times[0][0].split()[0] + " 00:00:00"
     day_end = event_times[-1][0].split()[0] + " 23:59:59"
 
-    print(day_start)
-    print(day_end)
+    # print(day_start)
+    # print(day_end)
+    
     # Finding the free slots
     free_slots = []
 
@@ -50,24 +51,28 @@ def get_free_slots(file_name):
 
     return free_slots
 
-# Get free slots from the JSON file
-file_name = "events.json"
-free_slots = get_free_slots(file_name)
-print(free_slots)
+def main():
 
-# Writing the free slots to a JSON file
-result = {}
+    # Get free slots from the JSON file
+    file_name = "events.json"
+    free_slots = get_free_slots(file_name)
+    print(free_slots)
 
-for entry in free_slots:
-    date = entry['start_time'].split(' ')[0]
-    start_time = entry['start_time'].split(' ')[1]
-    end_time = entry['end_time'].split(' ')[1]
+    # Writing the free slots to a JSON file
+    result = {}
 
-    if date not in result:
-        result[date] = []
+    for entry in free_slots:
+        date = entry['start_time'].split(' ')[0]
+        start_time = entry['start_time'].split(' ')[1]
+        end_time = entry['end_time'].split(' ')[1]
 
-    result[date].append({'start_time': start_time, 'end_time': end_time})
+        if date not in result:
+            result[date] = []
 
-with open('output.json', 'w') as f:
-    json.dump(result, f, indent=2)
+        result[date].append({'start_time': start_time, 'end_time': end_time})
 
+    with open('output.json', 'w') as f:
+        json.dump(result, f, indent=2)
+
+if __name__ == "__main__":
+    main()
