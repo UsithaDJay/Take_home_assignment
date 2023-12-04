@@ -6,7 +6,6 @@ Thank you for diving into this assignment! Remember, there's no single "right" s
 
 We value both technical skills and individual creativity. While there's no one "right" answer, we're keen to see your unique perspective and problem-solving approach. Don't hesitate to think outside the box. 
 
-Happy coding!
 
 [1. **Python Refactoring Exercise: Prompt Formatting**](https://www.notion.so/1-Python-Refactoring-Exercise-Prompt-Formatting-8200dfebd9b94d39bbc2c97d8a7399d7?pvs=21)
 
